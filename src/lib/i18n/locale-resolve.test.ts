@@ -16,6 +16,17 @@ test("matchSupportedLocale maps en variants to en", () => {
   assert.equal(matchSupportedLocale("EN-GB"), "en") // case-insensitive
 })
 
+test("matchSupportedLocale maps ru variants to ru", () => {
+  assert.equal(matchSupportedLocale("ru"), "ru")
+  assert.equal(matchSupportedLocale("ru-RU"), "ru")
+  assert.equal(matchSupportedLocale("RU-ru"), "ru")
+})
+
+test("matchSupportedLocale maps uk variants to uk", () => {
+  assert.equal(matchSupportedLocale("uk"), "uk")
+  assert.equal(matchSupportedLocale("uk-UA"), "uk")
+})
+
 test("matchSupportedLocale returns null for unsupported languages", () => {
   assert.equal(matchSupportedLocale("fr-FR"), null)
   assert.equal(matchSupportedLocale("ja"), null)
